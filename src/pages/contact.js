@@ -18,7 +18,6 @@ const [isnotarrived, setisnotarrived] = useState(false)
   }
   const [token, setToken] = useState(null)
  const captchaRef = useRef(null)
-//test
  const onLoad = async () => {
    await captchaRef.current.execute()
   }
