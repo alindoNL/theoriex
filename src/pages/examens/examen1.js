@@ -95,7 +95,7 @@ function Examen1() {
       })
     }
   }
-  const [counter, setCounter] = React.useState(8)
+  const [counter, setCounter] = useState(8)
   const [checked1, setchecked1] = useState(false)
   const [checked2, setchecked2] = useState(false)
   const [checked3, setchecked3] = useState(false)

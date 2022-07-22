@@ -166,59 +166,59 @@ if(timer){
 const [timerr, setTimerr] = useState(false)
 const [minutess, setMinutess] = useState(16)
 const [secondss, setSecondss] = useState(0)
-useEffect(() => {
-if(timerr){
-  let myInterval = setInterval(() => {
-    if (secondss > 0) {
-      setSecondss(secondss - 1)
-    }
-    if (secondss === 0) {
-      if (minutess === 0) {
-        clearInterval(myInterval)
-      } else {
-        setMinutess(minutess - 1)
-        setSecondss(59)
-      }
-    }
-  }, 1000)
+// useEffect(() => {
+// if(timerr){
+//   let myInterval = setInterval(() => {
+//     if (secondss > 0) {
+//       setSecondss(secondss - 1)
+//     }
+//     if (secondss === 0) {
+//       if (minutess === 0) {
+//         clearInterval(myInterval)
+//       } else {
+//         setMinutess(minutess - 1)
+//         setSecondss(59)
+//       }
+//     }
+//   }, 1000)
  
   
-  return () => {
-    clearInterval(myInterval)
-  }
-}
-}, [inzicht,timerr, secondss, minutess])
+//   return () => {
+//     clearInterval(myInterval)
+//   }
+// }
+// }, [inzicht,timerr, secondss, minutess])
 
 
-  useEffect(() => {
-    if (gevaar) {
-      if (counter <= 0) {
-        setchecked3(false)
-        setchecked1(false)
-        setchecked2(false)
-        if (curranswer === '') {
-          volgendeVraag()
-        } else {
-          submitarr(curranswer)
-          setcurranswer('')
-        }
+//   useEffect(() => {
+//     if (gevaar) {
+//       if (counter <= 0) {
+//         setchecked3(false)
+//         setchecked1(false)
+//         setchecked2(false)
+//         if (curranswer === '') {
+//           volgendeVraag()
+//         } else {
+//           submitarr(curranswer)
+//           setcurranswer('')
+//         }
 
-        let nextQuestion = currentQuestion + 1
-        setCounter(8)
-        setCurrentQuestion(nextQuestion)
-      }
-      const timer = setTimeout(() => {
-        setCounter(counter - 1)
-      }, 1000)
-      if (currentQuestion === 25) {
-        setgevaar(false)
-        setkennis(true)
-        setLaden(false)
-      }
+//         let nextQuestion = currentQuestion + 1
+//         setCounter(8)
+//         setCurrentQuestion(nextQuestion)
+//       }
+//       const timer = setTimeout(() => {
+//         setCounter(counter - 1)
+//       }, 1000)
+//       if (currentQuestion === 25) {
+//         setgevaar(false)
+//         setkennis(true)
+//         setLaden(false)
+//       }
 
-      return () => clearInterval(timer)
-    }
-  }, [counter, gevaar, currentQuestion])
+//       return () => clearInterval(timer)
+//     }
+//   }, [counter, gevaar, currentQuestion])
   const laadVragen = () => {
     setLaden(true)
   }
@@ -319,15 +319,15 @@ if(timerr){
           </div>
 
           <div>
-            <div className='flex justify-center items-center mb-4'>
+            <div className='flex justify-center  md:h-96 h-80 md:mx-4 mx-2 items-center md:mb-8'>
               <LazyLoadImage
-                className='md:w-100 sm:h-80 sm:w-100 sm:w-100 2xl:w-auto 2xl:h-96 rounded shadow-md'
+                className=' max-h-full max-w-full rounded shadow-md'
                 src={vragen.questions[currentQuestion].image}
                 alt={`je hebt geen foto toegevoegd`}
               />
             </div>
-            <div className='flex flex-col md:mx-36 lg:mx-64 2xl:mx-64 '>
-              <label className='m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-blue-200 mb-4 p-4 cursor-pointer'>
+            <div className='flex flex-col mx-12 md:mx-36 lg:mx-64 2xl:mx-96 '>
+              <label className='mx-4 2xl:mx-64 lg:mx-28 rounded-lg bg-blue-200 mb-4 md:p-4 p-3 cursor-pointer'>
                 <input
                   onChange={() => {}}
                   checked={checked1}
@@ -344,7 +344,7 @@ if(timerr){
                   {vragen.questions[currentQuestion].opties[0].ant}
                 </span>
               </label>
-              <label className=' m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-blue-200 mb-4 p-4 cursor-pointer'>
+              <label className=' m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-blue-200 mb-4 md:p-4 p-3 cursor-pointer'>
                 <input
                   onChange={() => {}}
                   checked={checked2}
@@ -363,7 +363,7 @@ if(timerr){
               </label>
               {vragen.questions[currentQuestion].opties[2] ? (
                 <>
-                  <label className='m-4 lg:mx-28 2xl:mx-64 rounded-lg bg-blue-200 mb-4 p-4 cursor-pointer'>
+                  <label className='m-4 lg:mx-28 2xl:mx-64 rounded-lg bg-blue-200 mb-4 md:p-4 p-3  cursor-pointer'>
                     <input
                       onChange={() => {}}
                       checked={checked3}

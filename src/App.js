@@ -14,9 +14,11 @@ import Examen7 from './pages/examens/examen7'
 import Examen8 from './pages/examens/examen8'
 import Examen9 from './pages/examens/examen9'
 import Examen10 from './pages/examens/examen10'
+import ScrollToTop from './ScrollToTop'
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Dropdown />
 
       <Routes>
