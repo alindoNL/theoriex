@@ -9,7 +9,7 @@ function Home() {
       <nav>
         <Navbar />
       </nav>
-      <section className='hero min-h-screen bg-base-200 m-12 flex center justify-center'>
+      <section className=' bg-base-200 m-12 flex center justify-center'>
         <div className='text-center hero-content m-8'>
           <div className='max-w-md'>
             <h1 className='text-5xl text font-bold'>
@@ -24,12 +24,14 @@ function Home() {
                 className='m-2 2xl:text-2xl xl:text-2xl lg:text-2xl md:text-lg text-md sm:text-lg   bg-blue-400 hover:opacity-80 p-3 rounded'
                 to='/theorieexamens'
               >
-                Ga naar de examens
+                Gratis theorie examens oefenen
               </Link>
             </button>
+
           </div>
         </div>
       </section>
+      <div className="h-44 bg-blue-300">s</div>
       <Footer />
     </>
   )
