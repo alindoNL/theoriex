@@ -31,7 +31,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <div className="h-44 bg-blue-300">s</div>
+      <div className="h-44 bg-blue-300"></div>
       <Footer />
     </>
   )

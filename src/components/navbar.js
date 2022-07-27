@@ -55,6 +55,9 @@ function Navbar() {
          <Link className='p-5 text-xl text' to='/'>
            home
          </Link>
+         <Link className='p-5 text-xl text' to='/prijzen'>
+           prijzen
+         </Link>
          <Link className='p-5 text-xl text' to='/theorieexamens'>
            theorieexamens
          </Link>
