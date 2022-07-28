@@ -154,16 +154,7 @@ const Footer = () => {
         </div>
         <div className='text-center p-6 bg-blue-200'>
           <span className='bg-blue-200'>© {date} Copyright: </span>
-          Profdrive,
-          <a
-            target='_blank'
-            rel='noreferrer'
-            className='text-blue-700 bg-blue-200'
-            href='https://www.alindo.nl/'
-          >
-            {' '}
-            Gemaakt door Alindo
-          </a>
+          theoriex
         </div>
       </footer>
     </>

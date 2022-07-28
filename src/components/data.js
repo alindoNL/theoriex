@@ -2,7 +2,7 @@ export const pricingPlans = [
   {
     title: '24 uur oefenen',
     oldPrice: 1390,
-    price: '1,79',
+    price: ' 1,79',
     description:
       'in dit pakket kun je 30 dagen unlimited oefenen. Je krijgt 10 examens. lorem ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. aperiam iste saepe harum, adipisci sapiente impedit consequatur voluptatibus cupiditate ',
     features: [
