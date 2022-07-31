@@ -16,6 +16,7 @@ import Examen9 from './pages/examens/examen9'
 import Examen10 from './pages/examens/examen10'
 import Prijzen from './pages/prijzen'
 import ScrollToTop from './ScrollToTop'
+import Payment from './pages/payment'
 function App() {
   return (
     <Router>
@@ -30,6 +31,7 @@ function App() {
           
      
         <Route path='/examen1' element={<Examen1 />} />
+        <Route path='/payment' element={<Payment />} />
         <Route path='/prijzen' element={<Prijzen />} />
         <Route path='/examen2' element={<Examen2 />} />
         <Route path='/examen3' element={<Examen3 />} />
