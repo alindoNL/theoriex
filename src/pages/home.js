@@ -2,36 +2,41 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Footer from '../components/footer'
 import Navbar from '../components/navbar'
-
+import Auto from '.././pictures/auto.png'
 function Home() {
+
+// for(let i = 0; i < 100; i++) {
+//     if(i % 3 === 1 && i % 5 === 0) {
+//       console.log(`${i} is divisible by 3`);
+//     }
+
+//   }
+//   console.log(1 % 3 );
   return (
     <>
-      <nav>
-        <Navbar />
-      </nav>
-      <section className=' bg-base-200 m-12 flex center justify-center'>
-        <div className='text-center hero-content m-8'>
-          <div className='max-w-md'>
-            <h1 className='text-5xl text font-bold'>
-              Gratis theorie examens oefenen
-            </h1>
-            <p className='py-6 text-xl'>
-              hier bij theoeriex.nl gratis theorieexamen oefenen, je kan hier 10
-              gratis oefenexamens maken.
-            </p>
-            <button className='mt-6 sm:m-6'>
-              <Link
-                className='m-2 2xl:text-2xl xl:text-2xl lg:text-2xl md:text-lg text-md sm:text-lg   bg-blue-400 hover:opacity-80 p-3 rounded'
-                to='/theorieexamens'
-              >
-                Gratis theorie examens oefenen
-              </Link>
-            </button>
-
-          </div>
+      <Navbar />
+      <section className='bg-blue-100 lg:flex center justify-center py-24'>
+        <div className='mx-12 py-8 bg-blue-100 '>
+          <h1 className='text-4xl bg-blue-100 '>
+            Theorie examen oefenen en leren.
+          </h1>
+          <p className='mt-4 w-80 text-slate-800 text-lg bg-blue-100  '>
+            Op deze website oefen en leer je voor het auto theorie-examen.
+          </p>
+          <Link
+            to='/'
+            className='py-2 mt-6  px-4 inline-flex justify-center items-center gap-2 rounded-sm bg-blue-700 border border-transparent  text-white hover:text-white hover:bg-blue-300 focus:outline-none  ring-offset-white  md:text-xl text-lg dark:focus:ring-offset-gray-800'
+          >
+            start met een gratis-examen
+          </Link>
+        </div>
+        <div className='mx-4 bg-blue-100 '>
+          <img className='w-80 h-60 bg-blue-100 ' src={Auto} alt='auto' />
         </div>
       </section>
-      <div className="h-44 bg-blue-300"></div>
+      <div className='h-44 '></div>
+      <div className='h-44 bg-blue-100 '></div>
+
       <Footer />
     </>
   )
