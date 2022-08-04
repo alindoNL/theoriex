@@ -8,7 +8,7 @@ function Dropdown({ toggle, isOpen }) {
     <div
       className={
         isOpen
-          ? 'grid grid-rows-4  text-center items-center text-white bg-blue-900'
+          ? 'grid grid-rows-4 shadow-md fixed w-full z-10 top-20  text-center items-center font-semibold text-white bg-blue-800'
           : 'hidden'
       }
       onClick={toggle}
@@ -25,8 +25,6 @@ function Dropdown({ toggle, isOpen }) {
       <Link className='p-5 bggg hover:bg-blue-600' to='/contact'>
         contact
       </Link>
-     
-   
     </div>
   )
 }
