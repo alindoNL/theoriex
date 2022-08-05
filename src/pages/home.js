@@ -68,6 +68,7 @@ function Home() {
         </p>
       </div>
       <div className='mx-auto grid max-w-7xl lg:grid-cols-3 gap-12 mt-6  lg:gap-8 pt-12 pb-12 px-4 sm:px-6 lg:px-8'>
+        <h4 className='flex items-center justify-center text-2xl'>Kies een examenpakket</h4>
         {pricingPlans.map((plan) => (
           <div
             className='border  border-slate-200 p-8 shadow-lg bg-white rounded-2xl relative flex flex-col '
@@ -119,17 +120,17 @@ function Home() {
             </Link>
           </div>
         ))}
-        <div className=' flex items-center justify-center'>
-          <h2 className='text-2xl'>
-            {' '}
-            twijfel je nog? probeer dan nu onze gratis examen
-          </h2>
-        </div>
-        <div className=' flex items-center justify-center'>
-          <button className='p-3 text-xl hover:bg-blue-400 bg-blue-500 rounded-md'>
-            Gratis examen proberen
-          </button>
-        </div>
+      </div>
+      <div className=' flex items-center justify-center'>
+        <h2 className='text-2xl'>
+          {' '}
+          twijfel je nog? probeer dan nu onze gratis examen
+        </h2>
+      </div>
+      <div className=' flex items-center mt-8 justify-center'>
+        <button className='p-3 text-xl hover:bg-blue-400 bg-blue-500 rounded-md'>
+          Gratis examen proberen
+        </button>
       </div>
       <Footer />
     </>
