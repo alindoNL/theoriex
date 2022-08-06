@@ -9,7 +9,7 @@ function Theorieexamens() {
       <nav>
         <Navbar />
       </nav>
-      <div className='lg:m-12 md:m-8 sm:m-4 m-2 lg:flex lg:items-center lg:justify-center flex flex-col items-center '>
+      <div className='lg:m-24  md:m-8 sm:m-4 m-2 lg:flex lg:items-center lg:justify-center flex flex-col items-center '>
         <div className='items-center flex lg:items-center lg:justify-center md:items-center  md:justify-center  '>
           <Link
             className=' m-4 lg:m-10 lg:text-2xl md:text-xl text-lg hover:opacity-80 bg-blue-400 p-3 rounded'

@@ -14,22 +14,22 @@ function Home() {
     <>
       <Navbar />
       <section className='bg-blue-100 lg:flex center justify-center py-44'>
-        <div className='mx-12 mr-24 py-8 bg-blue-100 '>
-          <h1 className='text-4xl w-96 font-semibold bg-blue-100 '>
+        <div className='  py-8 bg-blue-100 '>
+          <h1 className='text-5xl w-8/12 font-semibold bg-blue-100 '>
             Theorie examen oefenen en leren.
           </h1>
-          <p className='mt-4  w-80 text-slate-800 text-xl bg-blue-100  '>
+          <p className='mt-4  w-3/6 text-slate-800 text-2xl bg-blue-100  '>
             Op deze website oefen en leer je voor het auto theorie-examen.
           </p>
           <Link
             to='/'
-            className='py-2 mt-6  px-4 inline-flex justify-center items-center gap-2 rounded-sm bg-blue-700 border border-transparent  text-white hover:text-white hover:bg-blue-300 focus:outline-none  ring-offset-white  md:text-xl text-lg dark:focus:ring-offset-gray-800'
+            className='py-2 mt-6  px-4 inline-flex justify-center items-center gap-2 rounded-sm bg-blue-700 border border-transparent  text-white hover:text-white hover:bg-blue-300 focus:outline-none  ring-offset-white  md:text-2xl text-lg dark:focus:ring-offset-gray-800'
           >
             start met een gratis-examen
           </Link>
         </div>
-        <div className='mx-4 ml-24 pt-16 bg-blue-100 '>
-          <img className='w-80 h-60 bg-blue-100 ' src={Auto} alt='auto' />
+        <div className=' pt-8 bg-blue-100 '>
+          <img className='w-96 h-72 bg-blue-100 ' src={Auto} alt='auto' />
         </div>
       </section>
       <div className='h-60  '>
@@ -67,8 +67,8 @@ function Home() {
           Ons platform wordt regelmatig geüpdatet
         </p>
       </div>
-      <div className='mx-auto grid max-w-7xl lg:grid-cols-3 gap-12 mt-6  lg:gap-8 pt-12 pb-12 px-4 sm:px-6 lg:px-8'>
-        <h4 className='flex items-center justify-center text-2xl'>Kies een examenpakket</h4>
+        <h4 className='flex pt-10 items-center justify-center text-2xl'>Kies een examenpakket</h4>
+      <div className='mx-auto grid max-w-7xl lg:grid-cols-3 gap-12 mt-6  lg:gap-8 pt-7 pb-12 px-4 sm:px-6 lg:px-8'>
         {pricingPlans.map((plan) => (
           <div
             className='border  border-slate-200 p-8 shadow-lg bg-white rounded-2xl relative flex flex-col '

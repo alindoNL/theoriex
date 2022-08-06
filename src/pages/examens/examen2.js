@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import { db } from '../../firebase'
 import { doc, getDoc } from 'firebase/firestore'
 import Overzicht from './overzicht'
+import ExNav from '../../components/ExNav';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Navbar from '../../components/navbar'
 function Examen2() {
@@ -267,10 +268,8 @@ const [secondss, setSecondss] = useState(0)
   }
   return (
     <>
-      {nav ? (
-        <nav>
+      {/* {nav ? (
           <Navbar />
-        </nav>
       ) : (
         <>
           {' '}
@@ -282,42 +281,14 @@ const [secondss, setSecondss] = useState(0)
             ga terug naar examens
           </button>
         </>
-      )}
+      )} */}
 
       {Laden ? (
         <>
-          {kennis ? (
-            <div className='flex  justify-center items-center'>
-              {minutes} : {seconds}
-            </div>
-          ) : (
-            <></>
-          )}
-          {inzicht ? (
-            <div className='flex  justify-center items-center'>
-              {minutess} : {secondss}
-            </div>
-          ) : (
-            <></>
-          )}
-          {gevaar ? (
-            <div>
-              <div>
-                <div className='flex mt-2 justify-center items-center'>
-                  {counter}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
-          <h1 className='flex mb-2 mt-1 justify-center items-center'>
-            vraag {currentQuestion + 1} van 65
-          </h1>
-          <div className='flex justify-center items-center mt-2'>
-            <h1>{vragen.questions[currentQuestion].vraag}</h1>
-          </div>
-
+        
+        
+         
+              <ExNav vragen={vragen} currentQuestion={currentQuestion} inzicht={inzicht} kennis={kennis} minutes={minutes} seconds={seconds} minutess={minutess} secondss={secondss}  counter={counter}  gevaar={gevaar} />
           <div>
             <div className='flex justify-center  md:h-96 h-80 md:mx-4 mx-2 items-center md:mb-8'>
               <LazyLoadImage
@@ -397,7 +368,7 @@ const [secondss, setSecondss] = useState(0)
         </>
       ) : (
         <div>
-          <p className='flex justify-center text-lg lg:text-xl lg:mx-56 items-center m-8'>
+          <p className='flex justify-center text-lg lg:text-xl lg:mx-56 items-center mt-32'>
             je hebt 3 onderdelen in de examens: Gevaarherkenning - gaat over het
             herkennen van gevaar en wat je moet doen in een situatie. voor dit
             onderdeel heb je 8 seconden per vraag. Kennis - hier laat je zien

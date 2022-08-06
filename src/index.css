@@ -5,15 +5,7 @@
   box-sizing: border-box;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.bgg {
-  background-color: #c0ccd1;
-}
-.bggg{
-   background-color: #009fe3;
-}
-.text {
-  color: #009fe3;
-}
+
 
 @tailwind base;
 @tailwind components;

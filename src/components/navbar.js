@@ -25,12 +25,12 @@ function Navbar() {
            alt='navbar-logo'
          />
        </Link>
-         <Link
-           className='cursor-pointer md:hidden   ml-12 lg:ml-32 xl:ml-64 text-xl text-white font-semibold'
-           to='/'
-         >
-           <img src={Logo} height={40} width={130} alt='navbar-logo' />
-         </Link>
+       <Link
+         className='cursor-pointer md:hidden   ml-12 lg:ml-32 xl:ml-64 text-xl text-white font-semibold'
+         to='/'
+       >
+         <img src={Logo} height={40} width={130} alt='navbar-logo' />
+       </Link>
        <div
          className=' mr-16 md:mr-0  md:ml-36  cursor-pointer lg:hidden'
          onClick={toggle}
@@ -71,10 +71,10 @@ function Navbar() {
          <Link to='/' className='p-5  text-lg font-semibold text-blue-800'>
            home
          </Link>
-         <Link to='/' className='p-5 text-lg  text-slate-800'>
+         <Link to='/theorieexamens' className='p-5 text-lg  text-slate-800'>
            theorieexamens
          </Link>
-         <Link to='/' className='p-5 text-lg  text-slate-800'>
+         <Link to='/prijzen' className='p-5 text-lg  text-slate-800'>
            prijzen
          </Link>
          <Link to='/' className='p-5 text-lg  text-slate-800'>
@@ -85,7 +85,7 @@ function Navbar() {
          <Link
            to='/'
            type='button'
-           className='py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md bg-blue-700 border border-transparent font-semibold text-white hover:text-white hover:bg-blue-100 focus:outline-none focus:ring-2 ring-offset-white  text-sm dark:focus:ring-offset-gray-800'
+           className='py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md bg-blue-700 border border-transparent font-semibold text-white hover:text-white hover:bg-blue-300 focus:outline-none focus:ring-2 ring-offset-white  text-sm dark:focus:ring-offset-gray-800'
          >
            GRATIS THEORIE-EXAMEN
          </Link>
