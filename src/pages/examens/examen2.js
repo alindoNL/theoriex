@@ -385,7 +385,9 @@ const [secondss, setSecondss] = useState(0)
             )}{' '}
           </div>
 
-          <div className='flex justify-center items-center'>
+
+
+          <div className='flex justify-center  items-center'>
             {kennis || inzicht ? (
               <>
                 {kennis ? (
