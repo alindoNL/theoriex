@@ -6,6 +6,7 @@ import Overzicht from './overzicht'
 import ExNav from '../../components/ExNav';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Navbar from '../../components/navbar'
+import BottomNav from '../../components/BottomNav';
 function Examen2() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [vragen, setVragen] = useState([])
@@ -285,10 +286,18 @@ const [secondss, setSecondss] = useState(0)
 
       {Laden ? (
         <>
-        
-        
-         
-              <ExNav vragen={vragen} currentQuestion={currentQuestion} inzicht={inzicht} kennis={kennis} minutes={minutes} seconds={seconds} minutess={minutess} secondss={secondss}  counter={counter}  gevaar={gevaar} />
+          <ExNav
+            vragen={vragen}
+            currentQuestion={currentQuestion}
+            inzicht={inzicht}
+            kennis={kennis}
+            minutes={minutes}
+            seconds={seconds}
+            minutess={minutess}
+            secondss={secondss}
+            counter={counter}
+            gevaar={gevaar}
+          />
           <div>
             <div className='flex justify-center  md:h-96 h-80 md:mx-4 mx-2 items-center md:mb-8'>
               <LazyLoadImage
@@ -297,8 +306,8 @@ const [secondss, setSecondss] = useState(0)
                 alt={`je hebt geen foto toegevoegd`}
               />
             </div>
-            <div className='flex flex-col mx-12 md:mx-36 lg:mx-64 2xl:mx-96 '>
-              <label className='mx-4 2xl:mx-64 lg:mx-28 rounded-lg bg-blue-200 mb-4 md:p-4 p-3 cursor-pointer'>
+            <div className='flex flex-col mx-12 mt-12 md:mx-36 lg:mx-64 2xl:mx-96 '>
+              <label className='mx-4 2xl:mx-64 lg:mx-28 rounded-lg bg-gray-200 mb-4 md:p-4 p-3 cursor-pointer'>
                 <input
                   onChange={() => {}}
                   checked={checked1}
@@ -311,11 +320,11 @@ const [secondss, setSecondss] = useState(0)
                     setchecked2(false)
                   }}
                 />
-                <span className=' ml-4 lg:text-md bg-blue-200  '>
+                <span className=' ml-4 lg:text-md bg-gray-200  '>
                   {vragen.questions[currentQuestion].opties[0].ant}
                 </span>
               </label>
-              <label className=' m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-blue-200 mb-4 md:p-4 p-3 cursor-pointer'>
+              <label className=' m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-gray-200 mb-4 md:p-4 p-3 cursor-pointer'>
                 <input
                   onChange={() => {}}
                   checked={checked2}
@@ -328,13 +337,13 @@ const [secondss, setSecondss] = useState(0)
                     setchecked2(true)
                   }}
                 />
-                <span className=' ml-4 lg:text-md  bg-blue-200   '>
+                <span className=' ml-4 lg:text-md  bg-gray-200  '>
                   {vragen.questions[currentQuestion].opties[1].ant}
                 </span>
               </label>
               {vragen.questions[currentQuestion].opties[2] ? (
                 <>
-                  <label className='m-4 lg:mx-28 2xl:mx-64 rounded-lg bg-blue-200 mb-4 md:p-4 p-3  cursor-pointer'>
+                  <label className='m-4 lg:mx-28 2xl:mx-64 rounded-lg bg-gray-200 mb-4 md:p-4 p-3  cursor-pointer'>
                     <input
                       onChange={() => {}}
                       checked={checked3}
@@ -347,7 +356,7 @@ const [secondss, setSecondss] = useState(0)
                         setchecked2(false)
                       }}
                     />
-                    <span className=' ml-4 lg:text-md bg-blue-200  '>
+                    <span className=' ml-4 lg:text-md bg-gray-200  '>
                       {vragen.questions[currentQuestion].opties[2].ant}
                     </span>
                   </label>
@@ -356,14 +365,10 @@ const [secondss, setSecondss] = useState(0)
                 <div></div>
               )}
             </div>
-            <button
-              className='lg:mr-44 md:mr-44 m-4 float-right bg-blue-300 p-3 rounded'
-              onClick={() => {
-                handleSubmit()
-              }}
-            >
-              volgende vraag
-            </button>
+            <BottomNav
+              currentQuestion={currentQuestion}
+              handleSubmit={handleSubmit}
+            />
           </div>
         </>
       ) : (
@@ -384,8 +389,6 @@ const [secondss, setSecondss] = useState(0)
               <div>in dit onderdeel ga je Gevaarherkenning doen </div>
             )}{' '}
           </div>
-
-
 
           <div className='flex justify-center  items-center'>
             {kennis || inzicht ? (

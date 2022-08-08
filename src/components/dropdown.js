@@ -5,27 +5,29 @@ function Dropdown({ toggle, isOpen }) {
 
 
   return (
-    <div
-      className={
-        isOpen
-          ? 'grid grid-rows-4 shadow-md fixed w-full z-10 top-20  text-center items-center font-semibold text-white bg-blue-800'
-          : 'hidden'
-      }
-      onClick={toggle}
-    >
-      <Link className='p-5 bggg hover:bg-blue-600' to='/'>
-        home
-      </Link>
-      <Link className='p-5 bggg hover:bg-blue-600' to='/prijzen'>
-        prijzen
-      </Link>
-      <Link className='p-5 bggg hover:bg-blue-600' to='/theorieexamens'>
-        theorieexamens
-      </Link>
-      <Link className='p-5 bggg hover:bg-blue-600' to='/contact'>
-        contact
-      </Link>
-    </div>
+    <>
+      <div
+        className={
+          isOpen
+            ? 'grid grid-rows-4 bg-gray-300  shadow-md fixed w-full z-10 top-20  text-center items-center font-semibold text-white '
+            : 'hidden'
+        }
+        onClick={toggle}
+      >
+        <Link className='p-5  bg-blue-600' to='/'>
+          home
+        </Link>
+        <Link className='p-5 bg-blue-600' to='/prijzen'>
+          prijzen
+        </Link>
+        <Link className='p-5 bg-blue-600' to='/theorieexamens'>
+          theorieexamens
+        </Link>
+        <Link className='p-5 bg-blue-600' to='/contact'>
+          contact
+        </Link>
+      </div>
+    </>
   )
 }
 
