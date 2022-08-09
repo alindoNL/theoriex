@@ -5,7 +5,7 @@ import { doc, getDoc } from 'firebase/firestore'
 import Overzicht from './overzicht'
 import ExNav from '../../components/ExNav';
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import Navbar from '../../components/navbar'
+import { AiOutlineRollback } from 'react-icons/ai'
 import BottomNav from '../../components/BottomNav';
 function Examen2() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -168,59 +168,59 @@ if(timer){
 const [timerr, setTimerr] = useState(false)
 const [minutess, setMinutess] = useState(16)
 const [secondss, setSecondss] = useState(0)
-// useEffect(() => {
-// if(timerr){
-//   let myInterval = setInterval(() => {
-//     if (secondss > 0) {
-//       setSecondss(secondss - 1)
-//     }
-//     if (secondss === 0) {
-//       if (minutess === 0) {
-//         clearInterval(myInterval)
-//       } else {
-//         setMinutess(minutess - 1)
-//         setSecondss(59)
-//       }
-//     }
-//   }, 1000)
+useEffect(() => {
+if(timerr){
+  let myInterval = setInterval(() => {
+    if (secondss > 0) {
+      setSecondss(secondss - 1)
+    }
+    if (secondss === 0) {
+      if (minutess === 0) {
+        clearInterval(myInterval)
+      } else {
+        setMinutess(minutess - 1)
+        setSecondss(59)
+      }
+    }
+  }, 1000)
  
   
-//   return () => {
-//     clearInterval(myInterval)
-//   }
-// }
-// }, [inzicht,timerr, secondss, minutess])
+  return () => {
+    clearInterval(myInterval)
+  }
+}
+}, [inzicht,timerr, secondss, minutess])
 
 
-//   useEffect(() => {
-//     if (gevaar) {
-//       if (counter <= 0) {
-//         setchecked3(false)
-//         setchecked1(false)
-//         setchecked2(false)
-//         if (curranswer === '') {
-//           volgendeVraag()
-//         } else {
-//           submitarr(curranswer)
-//           setcurranswer('')
-//         }
+  useEffect(() => {
+    if (gevaar) {
+      if (counter <= 0) {
+        setchecked3(false)
+        setchecked1(false)
+        setchecked2(false)
+        if (curranswer === '') {
+          volgendeVraag()
+        } else {
+          submitarr(curranswer)
+          setcurranswer('')
+        }
 
-//         let nextQuestion = currentQuestion + 1
-//         setCounter(8)
-//         setCurrentQuestion(nextQuestion)
-//       }
-//       const timer = setTimeout(() => {
-//         setCounter(counter - 1)
-//       }, 1000)
-//       if (currentQuestion === 25) {
-//         setgevaar(false)
-//         setkennis(true)
-//         setLaden(false)
-//       }
+        let nextQuestion = currentQuestion + 1
+        setCounter(8)
+        setCurrentQuestion(nextQuestion)
+      }
+      const timer = setTimeout(() => {
+        setCounter(counter - 1)
+      }, 1000)
+      if (currentQuestion === 25) {
+        setgevaar(false)
+        setkennis(true)
+        setLaden(false)
+      }
 
-//       return () => clearInterval(timer)
-//     }
-//   }, [counter, gevaar, currentQuestion])
+      return () => clearInterval(timer)
+    }
+  }, [counter, gevaar, currentQuestion])
   const laadVragen = () => {
     setLaden(true)
   }
@@ -269,107 +269,113 @@ const [secondss, setSecondss] = useState(0)
   }
   return (
     <>
-      {/* {nav ? (
-          <Navbar />
-      ) : (
-        <>
-          {' '}
-          <button
-            onClick={() => window.location.reload()}
-            className='m-4  bg-blue-400 p-3 rounded'
-          >
-            {' '}
-            ga terug naar examens
-          </button>
-        </>
-      )} */}
+      <nav className='h-20 items-center  flex  bg-blue-500 flex-col shadow-md fixed w-full z-10  top-0 '>
+        <div className=' self-start bg-blue-400 '>
+          <Link to='/theorieexamens'>
+            <AiOutlineRollback className='text-5xl flex text-white bg-blue-400   justify-center items-center w-16  h-20 absolute' />
+          </Link>
+        </div>
+        {kennis ? (
+          <>
+            <h3 className='py-2 px-3 mt-4 rounded-2xl'>
+              {' '}
+              {minutes} : {seconds}
+            </h3>
+          </>
+        ) : (
+          <></>
+        )}
+        {inzicht ? (
+          <>
+            <h3 className='py-2 px-3 mt-4 rounded-2xl'>
+              {' '}
+              {minutess} : {secondss}
+            </h3>
+          </>
+        ) : (
+          <></>
+        )}
+        {gevaar ? (
+          <>
+            <h3 className='py-2 px-3 mt-4 rounded-2xl'>{counter}</h3>
+          </>
+        ) : (
+          <></>
+        )}
+      </nav>
 
       {Laden ? (
         <>
-          <ExNav
-            vragen={vragen}
-            currentQuestion={currentQuestion}
-            inzicht={inzicht}
-            kennis={kennis}
-            minutes={minutes}
-            seconds={seconds}
-            minutess={minutess}
-            secondss={secondss}
-            counter={counter}
-            gevaar={gevaar}
-          />
-          <div>
-            <div className='flex justify-center  md:h-96 h-80 md:mx-4 mx-2 items-center md:mb-8'>
-              <LazyLoadImage
-                className=' max-h-full max-w-full rounded shadow-md'
-                src={vragen.questions[currentQuestion].image}
-                alt={`je hebt geen foto toegevoegd`}
-              />
-            </div>
-            <div className='flex flex-col mx-12 mt-12 md:mx-36 lg:mx-64 2xl:mx-96 '>
-              <label className='mx-4 2xl:mx-64 lg:mx-28 rounded-lg bg-gray-200 mb-4 md:p-4 p-3 cursor-pointer'>
-                <input
-                  onChange={() => {}}
-                  checked={checked1}
-                  type='radio'
-                  onClick={() => {
-                    const ant = vragen.questions[currentQuestion].opties[0]
-                    setcurranswer(ant)
-                    setchecked3(false)
-                    setchecked1(true)
-                    setchecked2(false)
-                  }}
-                />
-                <span className=' ml-4 lg:text-md bg-gray-200  '>
-                  {vragen.questions[currentQuestion].opties[0].ant}
-                </span>
-              </label>
-              <label className=' m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-gray-200 mb-4 md:p-4 p-3 cursor-pointer'>
-                <input
-                  onChange={() => {}}
-                  checked={checked2}
-                  type='radio'
-                  onClick={() => {
-                    const ant = vragen.questions[currentQuestion].opties[1]
-                    setcurranswer(ant)
-                    setchecked3(false)
-                    setchecked1(false)
-                    setchecked2(true)
-                  }}
-                />
-                <span className=' ml-4 lg:text-md  bg-gray-200  '>
-                  {vragen.questions[currentQuestion].opties[1].ant}
-                </span>
-              </label>
-              {vragen.questions[currentQuestion].opties[2] ? (
-                <>
-                  <label className='m-4 lg:mx-28 2xl:mx-64 rounded-lg bg-gray-200 mb-4 md:p-4 p-3  cursor-pointer'>
-                    <input
-                      onChange={() => {}}
-                      checked={checked3}
-                      type='radio'
-                      onClick={() => {
-                        const ant = vragen.questions[currentQuestion].opties[2]
-                        setcurranswer(ant)
-                        setchecked3(true)
-                        setchecked1(false)
-                        setchecked2(false)
-                      }}
-                    />
-                    <span className=' ml-4 lg:text-md bg-gray-200  '>
-                      {vragen.questions[currentQuestion].opties[2].ant}
-                    </span>
-                  </label>
-                </>
-              ) : (
-                <div></div>
-              )}
-            </div>
-            <BottomNav
-              currentQuestion={currentQuestion}
-              handleSubmit={handleSubmit}
+          <div className='flex justify-center  md:h-96 mt-24 h-80 md:mx-4 mx-2 items-center md:mb-8'>
+            <LazyLoadImage
+              className=' max-h-full max-w-full rounded shadow-md'
+              src={vragen.questions[currentQuestion].image}
+              alt={`je hebt geen foto toegevoegd`}
             />
           </div>
+          <div className='flex flex-col mx-12 mt-12 md:mx-36 lg:mx-64 2xl:mx-96 '>
+            <label className='mx-4 2xl:mx-64 lg:mx-28 rounded-lg bg-gray-200 mb-4 md:p-4 p-3 cursor-pointer'>
+              <input
+                onChange={() => {}}
+                checked={checked1}
+                type='radio'
+                onClick={() => {
+                  const ant = vragen.questions[currentQuestion].opties[0]
+                  setcurranswer(ant)
+                  setchecked3(false)
+                  setchecked1(true)
+                  setchecked2(false)
+                }}
+              />
+              <span className=' ml-4 lg:text-md bg-gray-200  '>
+                {vragen.questions[currentQuestion].opties[0].ant}
+              </span>
+            </label>
+            <label className=' m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-gray-200 mb-4 md:p-4 p-3 cursor-pointer'>
+              <input
+                onChange={() => {}}
+                checked={checked2}
+                type='radio'
+                onClick={() => {
+                  const ant = vragen.questions[currentQuestion].opties[1]
+                  setcurranswer(ant)
+                  setchecked3(false)
+                  setchecked1(false)
+                  setchecked2(true)
+                }}
+              />
+              <span className=' ml-4 lg:text-md  bg-gray-200  '>
+                {vragen.questions[currentQuestion].opties[1].ant}
+              </span>
+            </label>
+            {vragen.questions[currentQuestion].opties[2] ? (
+              <>
+                <label className='m-4 lg:mx-28 2xl:mx-64 rounded-lg bg-gray-200 mb-4 md:p-4 p-3  cursor-pointer'>
+                  <input
+                    onChange={() => {}}
+                    checked={checked3}
+                    type='radio'
+                    onClick={() => {
+                      const ant = vragen.questions[currentQuestion].opties[2]
+                      setcurranswer(ant)
+                      setchecked3(true)
+                      setchecked1(false)
+                      setchecked2(false)
+                    }}
+                  />
+                  <span className=' ml-4 lg:text-md bg-gray-200  '>
+                    {vragen.questions[currentQuestion].opties[2].ant}
+                  </span>
+                </label>
+              </>
+            ) : (
+              <div></div>
+            )}
+          </div>
+          <BottomNav
+            currentQuestion={currentQuestion}
+            handleSubmit={handleSubmit}
+          />
         </>
       ) : (
         <div>

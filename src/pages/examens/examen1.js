@@ -3,20 +3,23 @@ import { Link } from 'react-router-dom'
 import { db } from '../../firebase'
 import { doc, getDoc } from 'firebase/firestore'
 import Overzicht from './overzicht'
+import ExNav from '../../components/ExNav'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
-import Navbar from '../../components/navbar'
+import { AiOutlineRollback } from 'react-icons/ai'
+import BottomNav from '../../components/BottomNav'
 function Examen1() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [vragen, setVragen] = useState([])
   const [Laden, setLaden] = useState(false)
   const [showScore, setShowScore] = useState(false)
-  const docRef = doc(db, 'vragen', 'examen1')
+  const docRef = doc(db, 'vragen', 'examen2')
   useEffect(() => {
     try {
       const getData = async () => {
         await getDoc(docRef).then((doc) => {
           setVragen(doc.data(), doc.id)
         })
+        console.log('asddasdsa');
       }
       getData()
     } catch (error) {
@@ -57,7 +60,6 @@ function Examen1() {
     }
   }
 
-  
   const scores = (curranswer) => {
     if (currentQuestion < 25) {
       if (curranswer.isCorrect) {
@@ -95,7 +97,7 @@ function Examen1() {
       })
     }
   }
-  const [counter, setCounter] = useState(8)
+  const [counter, setCounter] = React.useState(8)
   const [checked1, setchecked1] = useState(false)
   const [checked2, setchecked2] = useState(false)
   const [checked3, setchecked3] = useState(false)
@@ -251,7 +253,7 @@ function Examen1() {
       <div>
         <button
           onClick={() => window.location.reload()}
-          className='m-4  bg-blue-400 p-3 rounded'
+          className='m-2  bg-blue-400 p-3 rounded'
         >
           {' '}
           ga terug naar examens
@@ -262,135 +264,117 @@ function Examen1() {
   }
   return (
     <>
-      {nav ? (
-        <Navbar />
-      ) : (
-        <>
-          {' '}
-          <button
-            onClick={() => window.location.reload()}
-            className='m-2  bg-blue-400 p-3 rounded'
-          >
-            {' '}
-            ga terug naar examens
-          </button>
-        </>
-      )}
+      <nav className='h-20 items-center  flex  bg-blue-500 flex-col shadow-md fixed w-full z-10  top-0 '>
+        <div className=' self-start bg-blue-400 '>
+          <Link to='/theorieexamens'>
+            <AiOutlineRollback className='text-5xl flex text-white bg-blue-400   justify-center items-center w-16  h-20 absolute' />
+          </Link>
+        </div>
+        {kennis ? (
+          <>
+            <h3 className='py-2 px-3 mt-4 rounded-2xl'>
+              {' '}
+              {minutes} : {seconds}
+            </h3>
+          </>
+        ) : (
+          <></>
+        )}
+        {inzicht ? (
+          <>
+            <h3 className='py-2 px-3 mt-4 rounded-2xl'>
+              {' '}
+              {minutess} : {secondss}
+            </h3>
+          </>
+        ) : (
+          <></>
+        )}
+        {gevaar ? (
+          <>
+            <h3 className='py-2 px-3 mt-4 rounded-2xl'>{counter}</h3>
+          </>
+        ) : (
+          <></>
+        )}
+      </nav>
 
       {Laden ? (
         <>
-          {kennis ? (
-            <div className='flex  justify-center items-center'>
-              {minutes} : {seconds}
-            </div>
-          ) : (
-            <></>
-          )}
-          {inzicht ? (
-            <div className='flex  justify-center items-center'>
-              {minutess} : {secondss}
-            </div>
-          ) : (
-            <></>
-          )}
-          {gevaar ? (
-            <div>
-              <div>
-                <div className='flex mt-2 justify-center items-center'>
-                  {counter}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
-          <h1 className='flex mb-2 mt-1 justify-center items-center'>
-            vraag {currentQuestion + 1} van 65
-          </h1>
-          <div className='flex justify-center items-center mt-2'>
-            <h1>{vragen.questions[currentQuestion].vraag}</h1>
+          <div className='flex justify-center  md:h-96 mt-24 h-80 md:mx-4 mx-2 items-center md:mb-8'>
+            <LazyLoadImage
+              className=' max-h-full max-w-full rounded shadow-md'
+              src={vragen.questions[currentQuestion].image}
+              alt={`je hebt geen foto toegevoegd`}
+            />
           </div>
-
-          <div>
-            <div className='flex justify-center items-center mb-4'>
-              <LazyLoadImage
-                className='md:w-100 sm:h-80 sm:w-100 sm:w-100 2xl:w-auto 2xl:h-96 rounded shadow-md'
-                src={vragen.questions[currentQuestion].image}
-                alt={`je hebt geen foto toegevoegd`}
+          <div className='flex flex-col mx-12 mt-12 md:mx-36 lg:mx-64 2xl:mx-96 '>
+            <label className='mx-4 2xl:mx-64 lg:mx-28 rounded-lg bg-gray-200 mb-4 md:p-4 p-3 cursor-pointer'>
+              <input
+                onChange={() => {}}
+                checked={checked1}
+                type='radio'
+                onClick={() => {
+                  const ant = vragen.questions[currentQuestion].opties[0]
+                  setcurranswer(ant)
+                  setchecked3(false)
+                  setchecked1(true)
+                  setchecked2(false)
+                }}
               />
-            </div>
-            <div className='flex flex-col md:mx-36 lg:mx-64 2xl:mx-64 '>
-              <label className='m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-blue-200 mb-4 p-4 cursor-pointer'>
-                <input
-                  onChange={() => {}}
-                  checked={checked1}
-                  type='radio'
-                  onClick={() => {
-                    const ant = vragen.questions[currentQuestion].opties[0]
-                    setcurranswer(ant)
-                    setchecked3(false)
-                    setchecked1(true)
-                    setchecked2(false)
-                  }}
-                />
-                <span className=' ml-4 lg:text-md bg-blue-200  '>
-                  {vragen.questions[currentQuestion].opties[0].ant}
-                </span>
-              </label>
-              <label className=' m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-blue-200 mb-4 p-4 cursor-pointer'>
-                <input
-                  onChange={() => {}}
-                  checked={checked2}
-                  type='radio'
-                  onClick={() => {
-                    const ant = vragen.questions[currentQuestion].opties[1]
-                    setcurranswer(ant)
-                    setchecked3(false)
-                    setchecked1(false)
-                    setchecked2(true)
-                  }}
-                />
-                <span className=' ml-4 lg:text-md  bg-blue-200   '>
-                  {vragen.questions[currentQuestion].opties[1].ant}
-                </span>
-              </label>
-              {vragen.questions[currentQuestion].opties[2] ? (
-                <>
-                  <label className='m-4 lg:mx-28 2xl:mx-64 rounded-lg bg-blue-200 mb-4 p-4 cursor-pointer'>
-                    <input
-                      onChange={() => {}}
-                      checked={checked3}
-                      type='radio'
-                      onClick={() => {
-                        const ant = vragen.questions[currentQuestion].opties[2]
-                        setcurranswer(ant)
-                        setchecked3(true)
-                        setchecked1(false)
-                        setchecked2(false)
-                      }}
-                    />
-                    <span className=' ml-4 lg:text-md bg-blue-200  '>
-                      {vragen.questions[currentQuestion].opties[2].ant}
-                    </span>
-                  </label>
-                </>
-              ) : (
-                <div></div>
-              )}
-            </div>
-            <button
-              className='lg:mr-44 md:mr-44 m-4 float-right bg-blue-300 p-3 rounded'
-              onClick={() => {
-                handleSubmit()
-              }}
-            >
-              volgende vraag
-            </button>
+              <span className=' ml-4 lg:text-md bg-gray-200  '>
+                {vragen.questions[currentQuestion].opties[0].ant}
+              </span>
+            </label>
+            <label className=' m-4 2xl:mx-64 lg:mx-28 rounded-lg bg-gray-200 mb-4 md:p-4 p-3 cursor-pointer'>
+              <input
+                onChange={() => {}}
+                checked={checked2}
+                type='radio'
+                onClick={() => {
+                  const ant = vragen.questions[currentQuestion].opties[1]
+                  setcurranswer(ant)
+                  setchecked3(false)
+                  setchecked1(false)
+                  setchecked2(true)
+                }}
+              />
+              <span className=' ml-4 lg:text-md  bg-gray-200  '>
+                {vragen.questions[currentQuestion].opties[1].ant}
+              </span>
+            </label>
+            {vragen.questions[currentQuestion].opties[2] ? (
+              <>
+                <label className='m-4 lg:mx-28 2xl:mx-64 rounded-lg bg-gray-200 mb-4 md:p-4 p-3  cursor-pointer'>
+                  <input
+                    onChange={() => {}}
+                    checked={checked3}
+                    type='radio'
+                    onClick={() => {
+                      const ant = vragen.questions[currentQuestion].opties[2]
+                      setcurranswer(ant)
+                      setchecked3(true)
+                      setchecked1(false)
+                      setchecked2(false)
+                    }}
+                  />
+                  <span className=' ml-4 lg:text-md bg-gray-200  '>
+                    {vragen.questions[currentQuestion].opties[2].ant}
+                  </span>
+                </label>
+              </>
+            ) : (
+              <div></div>
+            )}
           </div>
+          <BottomNav
+            currentQuestion={currentQuestion}
+            handleSubmit={handleSubmit}
+          />
         </>
       ) : (
         <div>
-          <p className='flex justify-center text-lg lg:text-xl lg:mx-56 items-center m-8'>
+          <p className='flex justify-center text-lg lg:text-xl lg:mx-56 items-center mt-32'>
             je hebt 3 onderdelen in de examens: Gevaarherkenning - gaat over het
             herkennen van gevaar en wat je moet doen in een situatie. voor dit
             onderdeel heb je 8 seconden per vraag. Kennis - hier laat je zien
@@ -407,7 +391,7 @@ function Examen1() {
             )}{' '}
           </div>
 
-          <div className='flex justify-center items-center'>
+          <div className='flex justify-center  items-center'>
             {kennis || inzicht ? (
               <>
                 {kennis ? (

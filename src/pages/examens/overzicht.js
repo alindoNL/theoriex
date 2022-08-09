@@ -3,6 +3,8 @@ import { FaThumbsDown } from 'react-icons/fa'
 import { FaThumbsUp } from 'react-icons/fa'
 import Gevaar from './onderdelen/gevaar'
 import Kennis from './onderdelen/kennis'
+import { Link } from 'react-router-dom'
+import { AiOutlineRollback } from 'react-icons/ai'
 import Inzicht from './onderdelen/inzicht'
 function Overzicht({
   vragen,
@@ -26,13 +28,13 @@ function Overzicht({
         <></>
       ) : (
         <>
-          <button
-            onClick={() => window.location.reload()}
-            className='bggg rounded ml-14 p-3 m-2 cursor-pointer'
-          >
-            {' '}
-            ga naar examens
-          </button>
+          <nav className='h-20 items-center  flex  bg-blue-500 flex-col shadow-md fixed w-full z-10  top-0 '>
+        <div className=' self-start bg-blue-400 '>
+          <Link to='/theorieexamens'>
+            <AiOutlineRollback className='text-5xl flex text-white bg-blue-400   justify-center items-center w-16  h-20 absolute' />
+          </Link>
+        </div>
+        </nav>
         </>
       )}
 
