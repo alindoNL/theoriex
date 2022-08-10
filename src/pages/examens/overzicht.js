@@ -41,12 +41,12 @@ function Overzicht({
       {gevaar || inzicht || kennis ? (
         <></>
       ) : gevaarscore >= 13 && kennisscore >= 10 && inzichtscore >= 25 ? (
-        <div className='flex lg:m-4 xl:mx-64  md:mx-24 lg:mx-44'>
+        <div className='flex mt-12  xl:mx-64  md:mx-24 lg:mx-44'>
           <FaThumbsUp className='text-green-600 text-7xl ' />
           <h1 className=' ml-14 mt-6 md:text-2xl'>Geslaagd</h1>
         </div>
       ) : (
-        <div className='flex lg:m-4 xl:mx-64  md:mx-24 lg:mx-44'>
+        <div className='flex mt-28 xl:mx-64  md:mx-24 lg:mx-44'>
           <FaThumbsDown className='text-red-600 text-7xl ' />
           <h1 className=' ml-14 mt-6 md:text-2xl text-lg'>Gezakt</h1>
         </div>
@@ -66,7 +66,7 @@ function Overzicht({
       ) : (
         <div
           className={`${
-            kennis || inzicht ? 'hidden' : 'lg:m-4 xl:mx-64  md:mx-24 lg:mx-44'
+            kennis || inzicht ? 'hidden' : 'mt-12 xl:mx-64  md:mx-24 lg:mx-44'
           }`}
         >
           <h1 className='lg:mb-2 md:mb-2 md:text-xl'>Gevaar</h1>

@@ -369,10 +369,12 @@ if(timerr){
                 </label>
               </>
             ) : (
-              <div></div>
+              <></>
             )}
           </div>
           <BottomNav
+          kennis={kennis}
+          inzicht={inzicht}
             currentQuestion={currentQuestion}
             handleSubmit={handleSubmit}
           />
