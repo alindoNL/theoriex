@@ -20,10 +20,12 @@ function Overzicht({
   const [kennis, setkennis] = useState(false)
   const [inzicht, setinzicht] = useState(false)
   const [currquestion, setcurrquestion] = useState(0)
-
-
-  return (
-    <div>
+  
+  console.log(gevaarscore.length);
+console.log(kennisscore.length)
+console.log(inzichtscore.length);
+return (
+  <div>
       {gevaar || inzicht || kennis ? (
         <></>
       ) : (
@@ -40,7 +42,7 @@ function Overzicht({
 
       {gevaar || inzicht || kennis ? (
         <></>
-      ) : gevaarscore >= 13 && kennisscore >= 10 && inzichtscore >= 25 ? (
+      ) : gevaarscore.length >= 13 && kennisscore.length >= 10 && inzichtscore.length >= 25 ? (
         <div className='flex mt-12  xl:mx-64  md:mx-24 lg:mx-44'>
           <FaThumbsUp className='text-green-600 text-7xl ' />
           <h1 className=' ml-14 mt-6 md:text-2xl'>Geslaagd</h1>
@@ -71,8 +73,8 @@ function Overzicht({
         >
           <h1 className='lg:mb-2 md:mb-2 md:text-xl'>Gevaar</h1>
           <h2 className='lg:mb-2 md:mb-2'>
-            Je hebt : {gevaarscore} van de 25 vragen goed.{' '}
-            {gevaarscore >= 13 ? (
+            Je hebt : {gevaarscore.length} van de 25 vragen goed.{' '}
+            {gevaarscore.length >= 13 ? (
               <>Je bent geslaagd voor Gevaarherkenning. </>
             ) : (
               <>Je bent gezakt voor Gevaarherkenning.</>
@@ -429,8 +431,8 @@ function Overzicht({
         >
           <h1 className='lg:mb-2 md:mb-2 md:text-xl'>Kennis</h1>
           <h2 className='lg:mb-2 md:mb-2'>
-            Je hebt : {kennisscore} van de 12 vragen goed.
-            {kennisscore >= 10 ? (
+            Je hebt : {kennisscore.length} van de 12 vragen goed.
+            {kennisscore.length >= 10 ? (
               <> Je bent geslaagd voor kennis. </>
             ) : (
               <>Je bent gezakt voor kennis.</>
@@ -630,8 +632,8 @@ function Overzicht({
         >
           <h1 className='lg:mb-2 md:mb-2 md:text-xl'>Inzicht</h1>
           <h2 className='lg:mb-2 md:mb-2 '>
-            Je hebt : {inzichtscore} van de 28 vragen goed.
-            {inzichtscore >= 10 ? (
+            Je hebt : {inzichtscore.length} van de 28 vragen goed.
+            {inzichtscore.length >= 10 ? (
               <> Je bent geslaagd voor inzicht. </>
             ) : (
               <>Je bent gezakt voor inzicht.</>

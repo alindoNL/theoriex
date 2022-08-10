@@ -38,7 +38,7 @@ const [vragengevonden, setvragengevonden] = useState(false)
   const [kennisscore, setkennisscore] = useState(0)
   const [inzichtscore, setinzichtscore] = useState(0)
   const [nav, setnav] = useState(true)
-
+console.log(mijnkennisarr)
   const submitarr = async (curranswer) => {
     if (currentQuestion < 25) {
       await mijngevaararr.push({
@@ -61,24 +61,24 @@ const [vragengevonden, setvragengevonden] = useState(false)
   }
   
   
-  const scores = (curranswer) => {
+  // const scores = (curranswer) => {
     
-    if (currentQuestion < 25) {
-      if (curranswer.isCorrect) {
-        setgevaarscore(gevaarscore + 1)
-      }
-    }
-    if (kennis) {
-      if (curranswer.isCorrect) {
-        setkennisscore(kennisscore + 1)
-      }
-    }
-    if (inzicht) {
-      if (curranswer.isCorrect) {
-        setinzichtscore(inzichtscore + 1)
-      }
-    }
-  }
+  //   if (currentQuestion < 25) {
+  //     if (curranswer.isCorrect) {
+  //       setgevaarscore(gevaarscore + 1)
+  //     }
+  //   }
+  //   if (kennis) {
+  //     if (curranswer.isCorrect) {
+  //       setkennisscore(kennisscore + 1)
+  //     }
+  //   }
+  //   if (inzicht) {
+  //     if (curranswer.isCorrect) {
+  //       setinzichtscore(inzichtscore + 1)
+  //     }
+  //   }
+  // }
   const volgendeVraag = async () => {
     if (currentQuestion < 25) {
       await mijngevaararr.push({
@@ -105,6 +105,11 @@ const [vragengevonden, setvragengevonden] = useState(false)
   const [checked3, setchecked3] = useState(false)
   const [curranswer, setcurranswer] = useState('')
   
+ const goedeAntwoorden =()=>{
+ setgevaarscore(mijngevaararr.filter((vraag) => vraag.isCorrect === true))
+ setkennisscore(mijnkennisarr.filter((vraag) => vraag.isCorrect === true))
+ setinzichtscore(mijninzichtarr.filter((vraag) => vraag.isCorrect === true))
+ }
   const volgende = () => {
     if (currentQuestion === 36) {
       setgeva('inzicht')
@@ -117,17 +122,25 @@ const [vragengevonden, setvragengevonden] = useState(false)
       setCurrentQuestion(nextQuestion)
     } else {
       setCurrentQuestion(0)
+      goedeAntwoorden()
       setShowScore(true)
     }
     setCurrentQuestion(nextQuestion)
   }
  
+ const vorigeKennis = ()=>{
+  setchecked1(false)
+  setchecked2(false)
+  setchecked3(false)
+  setCurrentQuestion(currentQuestion - 1)
+  mijnkennisarr.pop()
+ }
   const handleSubmit =()=>{
 setchecked1(false)
 setchecked2(false)
 setchecked3(false)
 volgende()
-scores(curranswer)
+// scores(curranswer)
 setCounter(8)
 if(curranswer !== ''){
 submitarr(curranswer)
@@ -375,8 +388,11 @@ if(timerr){
           <BottomNav
           kennis={kennis}
           inzicht={inzicht}
+          mijnkennisarr={mijnkennisarr}
+          mijninzichtarr={mijninzichtarr}
             currentQuestion={currentQuestion}
             handleSubmit={handleSubmit}
+            vorigeKennis={vorigeKennis}
           />
         </>
       ) : (
