@@ -135,6 +135,13 @@ console.log(mijnkennisarr)
   setCurrentQuestion(currentQuestion - 1)
   mijnkennisarr.pop()
  }
+ const vorigeInzicht = ()=>{
+  setchecked1(false)
+  setchecked2(false)
+  setchecked3(false)
+  setCurrentQuestion(currentQuestion - 1)
+  mijninzichtarr.pop()
+ }
   const handleSubmit =()=>{
 setchecked1(false)
 setchecked2(false)
@@ -386,12 +393,13 @@ if(timerr){
             )}
           </div>
           <BottomNav
-          kennis={kennis}
-          inzicht={inzicht}
-          mijnkennisarr={mijnkennisarr}
-          mijninzichtarr={mijninzichtarr}
+            kennis={kennis}
+            inzicht={inzicht}
+            mijnkennisarr={mijnkennisarr}
+            mijninzichtarr={mijninzichtarr}
             currentQuestion={currentQuestion}
             handleSubmit={handleSubmit}
+            vorigeInzicht={vorigeInzicht}
             vorigeKennis={vorigeKennis}
           />
         </>

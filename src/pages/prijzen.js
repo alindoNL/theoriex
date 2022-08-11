@@ -8,7 +8,7 @@ const Prijzen = () => {
   return (
     <>
       <Navbar />
-      <div className='mx-auto grid max-w-7xl lg:grid-cols-3 gap-12 mt-6  lg:gap-8 pt-12 pb-12 px-4 sm:px-6 lg:px-8'>
+      <div className='mx-auto  grid max-w-7xl lg:grid-cols-3 gap-12 mt-24  lg:gap-8 pt-12 pb-12 px-4 sm:px-6 lg:px-8'>
         {pricingPlans.map((plan) => (
           <div
             className='border  border-slate-200 p-8 shadow-lg bg-white rounded-2xl relative flex flex-col '

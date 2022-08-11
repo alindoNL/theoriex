@@ -74,9 +74,9 @@ function Navbar() {
          <Link to='/theorieexamens' className='p-5 text-lg  text-slate-800'>
            theorieexamens
          </Link>
-         <Link to='/prijzen' className='p-5 text-lg  text-slate-800'>
+         {/* <Link to='/prijzen' className='p-5 text-lg  text-slate-800'>
            prijzen
-         </Link>
+         </Link> */}
          <Link to='/' className='p-5 text-lg  text-slate-800'>
            inloggen
          </Link>

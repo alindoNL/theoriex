@@ -19,7 +19,6 @@ function Examen1() {
         await getDoc(docRef).then((doc) => {
           setVragen(doc.data(), doc.id)
         })
-        console.log('asddasdsa');
       }
       getData()
     } catch (error) {
@@ -38,7 +37,7 @@ function Examen1() {
   const [kennisscore, setkennisscore] = useState(0)
   const [inzichtscore, setinzichtscore] = useState(0)
   const [nav, setnav] = useState(true)
-
+  console.log(mijnkennisarr)
   const submitarr = async (curranswer) => {
     if (currentQuestion < 25) {
       await mijngevaararr.push({
@@ -60,23 +59,24 @@ function Examen1() {
     }
   }
 
-  const scores = (curranswer) => {
-    if (currentQuestion < 25) {
-      if (curranswer.isCorrect) {
-        setgevaarscore(gevaarscore + 1)
-      }
-    }
-    if (kennis) {
-      if (curranswer.isCorrect) {
-        setkennisscore(kennisscore + 1)
-      }
-    }
-    if (inzicht) {
-      if (curranswer.isCorrect) {
-        setinzichtscore(inzichtscore + 1)
-      }
-    }
-  }
+  // const scores = (curranswer) => {
+
+  //   if (currentQuestion < 25) {
+  //     if (curranswer.isCorrect) {
+  //       setgevaarscore(gevaarscore + 1)
+  //     }
+  //   }
+  //   if (kennis) {
+  //     if (curranswer.isCorrect) {
+  //       setkennisscore(kennisscore + 1)
+  //     }
+  //   }
+  //   if (inzicht) {
+  //     if (curranswer.isCorrect) {
+  //       setinzichtscore(inzichtscore + 1)
+  //     }
+  //   }
+  // }
   const volgendeVraag = async () => {
     if (currentQuestion < 25) {
       await mijngevaararr.push({
@@ -103,6 +103,11 @@ function Examen1() {
   const [checked3, setchecked3] = useState(false)
   const [curranswer, setcurranswer] = useState('')
 
+  const goedeAntwoorden = () => {
+    setgevaarscore(mijngevaararr.filter((vraag) => vraag.isCorrect === true))
+    setkennisscore(mijnkennisarr.filter((vraag) => vraag.isCorrect === true))
+    setinzichtscore(mijninzichtarr.filter((vraag) => vraag.isCorrect === true))
+  }
   const volgende = () => {
     if (currentQuestion === 36) {
       setgeva('inzicht')
@@ -115,17 +120,32 @@ function Examen1() {
       setCurrentQuestion(nextQuestion)
     } else {
       setCurrentQuestion(0)
+      goedeAntwoorden()
       setShowScore(true)
     }
     setCurrentQuestion(nextQuestion)
   }
 
+  const vorigeKennis = () => {
+    setchecked1(false)
+    setchecked2(false)
+    setchecked3(false)
+    setCurrentQuestion(currentQuestion - 1)
+    mijnkennisarr.pop()
+  }
+  const vorigeInzicht = () => {
+    setchecked1(false)
+    setchecked2(false)
+    setchecked3(false)
+    setCurrentQuestion(currentQuestion - 1)
+    mijninzichtarr.pop()
+  }
   const handleSubmit = () => {
     setchecked1(false)
     setchecked2(false)
     setchecked3(false)
     volgende()
-    scores(curranswer)
+    // scores(curranswer)
     setCounter(8)
     if (curranswer !== '') {
       submitarr(curranswer)
@@ -364,12 +384,18 @@ function Examen1() {
                 </label>
               </>
             ) : (
-              <div></div>
+              <></>
             )}
           </div>
           <BottomNav
+            kennis={kennis}
+            inzicht={inzicht}
+            mijnkennisarr={mijnkennisarr}
+            mijninzichtarr={mijninzichtarr}
             currentQuestion={currentQuestion}
             handleSubmit={handleSubmit}
+            vorigeInzicht={vorigeInzicht}
+            vorigeKennis={vorigeKennis}
           />
         </>
       ) : (
