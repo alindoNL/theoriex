@@ -13,28 +13,29 @@ function Home() {
   return (
     <>
       <Navbar />
-      <section className='bg-blue-100 lg:flex center justify-center py-44'>
-        <div className='  py-8 bg-blue-100 '>
-          <h1 className='text-5xl w-8/12 font-semibold bg-blue-100 '>
+      <section className='bg-blue-100 lg:flex center justify-center lg:py-44 py-32'>
+        <div className='  py-8 bg-blue-100  '>
+          <h1 className=' mx-24 lg:mx-0 lg:text-5xl text-4xl w-8/12 font-semibold bg-blue-100 '>
             Theorie examen oefenen en leren.
           </h1>
-          <p className='mt-4  w-3/6 text-slate-800 text-2xl bg-blue-100  '>
+
+          <p className='mt-4  mx-24 lg:mx-0  w-3/6 text-slate-800 lg:text-2xl text-xl  bg-blue-100  '>
             Op deze website oefen en leer je voor het auto theorie-examen.
           </p>
           <Link
-            to='/'
-            className='py-2 mt-6  px-4 inline-flex justify-center items-center gap-2 rounded-sm bg-blue-700 border border-transparent  text-white hover:text-white hover:bg-blue-300 focus:outline-none  ring-offset-white  md:text-2xl text-lg dark:focus:ring-offset-gray-800'
+            to='/theorieexamens'
+            className='py-2 mt-6 mx-24 lg:mx-0  px-4 inline-flex justify-center items-center gap-2 rounded-sm bg-blue-700 border border-transparent  text-white hover:text-white hover:bg-blue-300 focus:outline-none  ring-offset-white  md:text-2xl text-lg dark:focus:ring-offset-gray-800'
           >
             start met een gratis-examen
           </Link>
         </div>
-        <div className=' pt-8 bg-blue-100 '>
-          <img className='w-96 h-72 bg-blue-100 ' src={Auto} alt='auto' />
+        <div className=' mx-24 lg:mx-0 lg:pt-8 pt-12 bg-blue-100 '>
+          <img className='md:w-96 md:h-72 bg-blue-100 ' src={Auto} alt='auto' />
         </div>
       </section>
       <div className='h-60  '>
-        <div className='flex center justify-center'>
-          <div className='mt-12 px-12 flex center justify-center'>
+        <div className='lg:flex center justify-center '>
+          <div className='mt-12 px-12 flex center justify-center '>
             <GrUnlock className='text-4xl ' />
             <h2 className='ml-4 w-64'>
               Je krijgt automatisch direct toegang tot de oefen theorie-examens.
@@ -45,7 +46,7 @@ function Home() {
             <h2 className='ml-4 w-64'>Altijd up-to-date.</h2>
           </div>
         </div>
-        <div className='flex center justify-center'>
+        <div className='lg:flex center justify-center'>
           <div className='mt-12 px-12 flex center justify-center'>
             <MdOutlineQuiz className='text-4xl ' />
             <h2 className='ml-4 w-64'>Alleen realistische examenvragen.</h2>
@@ -59,7 +60,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className='h-44 bg-blue-100 '>
+      {/* <div className='h-44 bg-blue-100 '>
         <h3 className='flex font-semibold bg-blue-100 pt-12 text-2xl items-center justify-center'>
           Kies hier onder een pakket en start direct met oefenen
         </h3>
@@ -86,7 +87,7 @@ function Home() {
               {/* <span className='text-xl flex items-center justify-center line-through text-slate-700 ml-2'>
                 €{plan.oldPrice},-
               </span> */}
-              <p className='text-sm justify-center font-semibold  pt-2 text-slate-500 flex items-center'>
+      {/* <p className='text-sm justify-center font-semibold  pt-2 text-slate-500 flex items-center'>
                 <span className='text-4xl text-slate-900 ml-2'>
                   €{plan.price}
                 </span>
@@ -131,7 +132,7 @@ function Home() {
         <button className='p-3 text-xl hover:bg-blue-400 bg-blue-500 rounded-md'>
           Gratis examen proberen
         </button>
-      </div>
+      </div> */}
       <Footer />
     </>
   )
