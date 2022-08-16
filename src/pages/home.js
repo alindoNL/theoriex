@@ -60,6 +60,7 @@ function Home() {
           </div>
         </div>
       </div>
+<div className='h-44 bg-blue-100 '></div>
       {/* <div className='h-44 bg-blue-100 '>
         <h3 className='flex font-semibold bg-blue-100 pt-12 text-2xl items-center justify-center'>
           Kies hier onder een pakket en start direct met oefenen
