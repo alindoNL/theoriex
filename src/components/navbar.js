@@ -68,7 +68,7 @@ function Navbar() {
          )}
        </div>
        <div className=' xl:px-28  2xl:pr-0 lg:block hidden m-2  '>
-         <Link to='/' className='p-5  text-lg font-semibold text-blue-800'>
+         <Link to='/' className='p-5  text-lg  text-blue-800'>
            home
          </Link>
          <Link to='/theorieexamens' className='p-5 text-lg  text-slate-800'>
@@ -85,7 +85,7 @@ function Navbar() {
          <Link
            to='/'
            type='button'
-           className='py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md bg-blue-700 border border-transparent font-semibold text-white hover:text-white hover:bg-blue-300 focus:outline-none focus:ring-2 ring-offset-white  text-sm dark:focus:ring-offset-gray-800'
+           className='py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md bg-blue-700 border border-transparent  text-white hover:text-white hover:bg-blue-300 focus:outline-none focus:ring-2 ring-offset-white  text-sm dark:focus:ring-offset-gray-800'
          >
            GRATIS THEORIE-EXAMEN
          </Link>
